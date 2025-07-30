@@ -10,12 +10,18 @@
     "lint": "next lint --fix"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.1",
     "@prisma/client": "^6.13.0",
+    "@radix-ui/themes": "^3.2.1",
+    "axios": "^1.11.0",
+    "easymde": "^2.20.0",
     "next": "15.4.5",
     "prisma": "^6.13.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-hook-form": "^7.61.1",
     "react-icons": "^5.5.0",
+    "react-simplemde-editor": "^5.2.0",
     "zod": "^4.0.14"
   },
   "devDependencies": {
@@ -28,6 +34,7 @@
     "eslint-config-next": "15.4.5",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.1",
+    "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4",

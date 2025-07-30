@@ -47,3 +47,5 @@ $ npm run build
 ## Features
 
 As the application grows, new features will be added and described here.
+
+- Creating issues with markdown syntax descriptions
