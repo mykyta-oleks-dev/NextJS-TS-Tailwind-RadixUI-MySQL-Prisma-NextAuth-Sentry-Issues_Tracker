@@ -20,6 +20,8 @@ As the application grows, additional technologies will be listed.
 
 - Tailwind CSS - a utility-first CSS framework.
 
+- Prisma - an open-source Object-Relational Mapper (ORM) designed for Node.js and TypeScript applications.
+
 ## Installation
 
 The project uses `npm` as the package manager.

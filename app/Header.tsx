@@ -13,7 +13,7 @@ const Header = () => {
 
 	return (
 		<header>
-			<nav className="bg-base-300 flex gap-9 border-b border-b-zinc-300 px-10 py-5">
+			<nav className="bg-base-300 flex gap-9 border-b border-b-zinc-300 px-10 py-3">
 				<Link href="/">
 					<AiFillBug size="1.75em" />
 				</Link>
