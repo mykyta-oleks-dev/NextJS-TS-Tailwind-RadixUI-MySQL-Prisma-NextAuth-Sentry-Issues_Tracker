@@ -37,7 +37,7 @@ const eslintConfig = defineConfig([
 			'@typescript-eslint/no-floating-promises': 'error',
 		},
 	},
-	globalIgnores(['**/node_modules', 'src/generated']),
+	globalIgnores(['**/node_modules', 'app/generated']),
 ]);
 
 export default eslintConfig;

@@ -1,4 +1,4 @@
-import { Badge, BadgeProps } from '@radix-ui/themes';
+import { Badge } from '@radix-ui/themes';
 import { Status } from '../generated/prisma';
 
 const BadgeMap: Record<

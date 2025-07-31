@@ -57,3 +57,4 @@ As the application grows, new features will be added and described here.
 - Creating issues with rich markdown syntax descriptions
 - Exploring created issues in a table format
 - View issues details in a dedicated page with markdown descriptions view
+- Edit issues data

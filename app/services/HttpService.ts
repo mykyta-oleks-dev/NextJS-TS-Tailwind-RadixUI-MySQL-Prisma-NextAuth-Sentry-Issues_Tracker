@@ -17,4 +17,15 @@ export default class HttpService<T extends P & { id: number | string }, P> {
 
 		return { request, abort: () => controller.abort() };
 	}
+
+	update(id: string | number, data: P, config: AxiosRequestConfig) {
+		const controller = new AbortController();
+
+		const request = apiClient.patch<T>(`${this.url}/${id}`, data, {
+			...config,
+			signal: controller.signal,
+		});
+
+		return { request, abort: () => controller.abort() };
+	}
 }
