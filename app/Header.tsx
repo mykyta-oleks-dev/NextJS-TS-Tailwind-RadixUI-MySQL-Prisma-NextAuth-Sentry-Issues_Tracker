@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AiFillBug } from 'react-icons/ai';
+import Link from 'next/link';
 
 const Header = () => {
 	const currentPath = usePathname();
@@ -17,7 +17,7 @@ const Header = () => {
 				<Link href="/">
 					<AiFillBug size="1.75em" />
 				</Link>
-				<ul className="flex gap-3">
+				<ul className="mt-auto flex gap-3">
 					{links.map((l) => (
 						<li key={l.href}>
 							<Link

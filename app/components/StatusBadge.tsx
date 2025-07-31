@@ -12,7 +12,11 @@ const BadgeMap: Record<
 
 const StatusBadge = ({ status }: Readonly<{ status: Status }>) => {
 	const badge = BadgeMap[status];
-	return <Badge color={badge.color}>{badge.label}</Badge>;
+	return (
+		<Badge color={badge.color} size="2">
+			{badge.label}
+		</Badge>
+	);
 };
 
 export default StatusBadge;

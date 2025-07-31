@@ -1,16 +1,26 @@
 'use client';
 
-import { Button, Callout, Heading, Text, TextField } from '@radix-ui/themes';
-import SimpleMDE from 'react-simplemde-editor';
-import 'easymde/dist/easymde.min.css';
-import { Controller, useForm } from 'react-hook-form';
+import {
+	ErrorMessage,
+	LoadingSpinner,
+	MarkdownPreview,
+} from '@/app/components';
 import issuesService from '@/app/services/IssuesService';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { FaExclamationTriangle } from 'react-icons/fa';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { CreateIssueData, createIssueSchema } from '@/app/validations/issues';
-import ErrorMessage from '@/app/components/ErrorMessage';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button, Callout, Flex, Heading, TextField } from '@radix-ui/themes';
+import EasyMDE from 'easymde';
+import 'easymde/dist/easymde.min.css';
+import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
+import { useMemo, useState } from 'react';
+import { renderToString } from 'react-dom/server';
+import { Controller, useForm } from 'react-hook-form';
+import { FaExclamationTriangle } from 'react-icons/fa';
+
+const SimpleMDE = dynamic(() => import('react-simplemde-editor'), {
+	ssr: false,
+});
 
 const NewIssuePage = () => {
 	const {
@@ -34,16 +44,54 @@ const NewIssuePage = () => {
 		try {
 			const { request } = issuesService.create(data, {});
 			setIsLoading(true);
-			await request;
-			router.push('/issues');
+			const response = await request;
+			router.push('/issues/' + response.data.id);
 		} catch (err: unknown) {
 			setIsLoading(false);
 			setError((err as Error).message ?? 'An unexpected error occured');
 		}
 	};
 
+	const options = useMemo(() => {
+		return {
+			toolbar: [
+				'bold',
+				'italic',
+				'strikethrough',
+				'|',
+				'heading-1',
+				'heading-2',
+				'heading-3',
+				'heading-bigger',
+				'heading-smaller',
+				'|',
+				'code',
+				'table',
+				'unordered-list',
+				'ordered-list',
+				'|',
+				'link',
+				'image',
+				'quote',
+				'upload-image',
+				'|',
+				'horizontal-rule',
+				'preview',
+				'side-by-side',
+				'fullscreen',
+				'|',
+				'guide',
+			],
+			previewRender(text) {
+				return renderToString(
+					<MarkdownPreview>{text}</MarkdownPreview>
+				);
+			},
+		} as EasyMDE.Options;
+	}, []);
+
 	return (
-		<div className="space-y-2.5">
+		<Flex direction="column" gap="3">
 			<Heading>Create a new issue</Heading>
 			{error && (
 				<Callout.Root color="red" role="alert">
@@ -69,7 +117,11 @@ const NewIssuePage = () => {
 						control={control}
 						name="description"
 						render={({ field }) => (
-							<SimpleMDE placeholder="Description" {...field} />
+							<SimpleMDE
+								placeholder="Description"
+								{...field}
+								options={options}
+							/>
 						)}
 					/>
 					<ErrorMessage>{errors?.description?.message}</ErrorMessage>
@@ -80,17 +132,10 @@ const NewIssuePage = () => {
 					color="green"
 				>
 					Submit new issue
-					{isLoading && (
-						<svg
-							className="size-4 animate-spin rounded-full border-2 border-solid border-current border-e-transparent"
-							viewBox="0 0 24 24"
-						>
-							asdasd
-						</svg>
-					)}
+					{isLoading && <LoadingSpinner />}
 				</Button>
 			</form>
-		</div>
+		</Flex>
 	);
 };
 
