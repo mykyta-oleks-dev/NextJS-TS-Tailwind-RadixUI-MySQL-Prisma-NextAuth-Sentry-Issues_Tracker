@@ -1,17 +1,9 @@
 import { Badge } from '@radix-ui/themes';
 import { Status } from '../generated/prisma';
-
-const BadgeMap: Record<
-	Status,
-	{ label: string; color: 'red' | 'violet' | 'green' }
-> = {
-	OPEN: { label: 'Open', color: 'red' },
-	IN_PROGRESS: { label: 'In Progress', color: 'violet' },
-	CLOSED: { label: 'Closed', color: 'green' },
-};
+import StatusMap from '../services/statusMap';
 
 const StatusBadge = ({ status }: Readonly<{ status: Status }>) => {
-	const badge = BadgeMap[status];
+	const badge = StatusMap[status];
 	return (
 		<Badge color={badge.color} size="2">
 			{badge.label}
