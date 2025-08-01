@@ -1,3 +1,5 @@
+'use client';
+
 import { AlertDialog, Button, Flex, Spinner } from '@radix-ui/themes';
 import { TiDeleteOutline } from 'react-icons/ti';
 import issuesService from '@/app/services/IssuesService';

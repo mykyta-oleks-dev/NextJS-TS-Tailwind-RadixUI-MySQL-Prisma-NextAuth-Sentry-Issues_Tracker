@@ -5,6 +5,11 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+header nav,
+main {
+	@apply container mx-auto px-5;
+}
+
 header nav ul a {
 	@apply transition;
 }

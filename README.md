@@ -28,6 +28,8 @@ As the application grows, additional technologies will be listed.
 
 - React Markdown + remark plugins - a React component to render markdown with remark plugins to support GFM syntax, easier lines breakdown.
 
+- Next Auth - an open-source, full-stack authentication library primarily designed for Next.js applications.
+
 ## Installation
 
 The project uses `npm` as the package manager.
@@ -55,8 +57,10 @@ $ npm run build
 As the application grows, new features will be added and described here.
 
 - Issues:
-    - Create issues with rich markdown syntax descriptions
-    - Explore created issues in a table format
+    - Explore issues in a table format
     - View issues details in a dedicated page with markdown descriptions view
-    - Edit issues data such as titles and descriptions, and switch between available statuses
-    - Delete issues from their dedicated pages with confirmation
+    - Create issues with rich markdown syntax descriptions (requires authentication)
+    - Edit issues data such as titles and descriptions, and switch between available statuses (requires authentication)
+    - Delete issues from their dedicated pages with confirmation (requires authentication)
+- Authentication:
+    - Sign In with your Google Account to be able to perform dangerous operations with issues, such as creating, editing, switching statuses and deleting

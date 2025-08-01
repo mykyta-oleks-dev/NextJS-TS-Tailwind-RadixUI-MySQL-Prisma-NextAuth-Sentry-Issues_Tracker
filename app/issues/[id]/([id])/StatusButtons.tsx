@@ -11,6 +11,7 @@ import {
 	Spinner,
 	Text,
 } from '@radix-ui/themes';
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -22,11 +23,16 @@ const StatusButtons = ({
 	status: Status;
 }) => {
 	const router = useRouter();
+	const { status: authStatus } = useSession();
 	const [isLoadingStatus, setIsLoadingStatus] = useState<Status | null>(null);
 	const [error, setError] = useState<string>('');
 
 	const onClickStatusChange = async (value: Status) => {
-		if (value === status) return;
+		if (value === status || authStatus === 'loading') return;
+
+		if (authStatus === 'unauthenticated') {
+			await signIn();
+		}
 
 		try {
 			setIsLoadingStatus(value);

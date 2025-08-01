@@ -1,5 +1,7 @@
+import authOptions from '@/app/auth/authOptions';
 import { createIssueSchema, CreateIssueData } from '@/app/validations/issues';
 import prisma from '@/prisma/client';
+import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { treeifyError } from 'zod';
 
@@ -7,6 +9,11 @@ export async function PATCH(
 	request: NextRequest,
 	{ params }: { params: Promise<{ id: string }> }
 ) {
+	const session = await getServerSession(authOptions);
+
+	if (!session)
+		return NextResponse.json({ error: 'Access denied' }, { status: 403 });
+
 	const id = parseInt((await params).id);
 
 	if (!id)
@@ -44,6 +51,11 @@ export async function DELETE(
 	request: NextRequest,
 	{ params }: { params: Promise<{ id: string }> }
 ) {
+	const session = await getServerSession(authOptions);
+
+	if (!session)
+		return NextResponse.json({ error: 'Access denied' }, { status: 403 });
+
 	const id = parseInt((await params).id);
 
 	if (!id)
