@@ -28,4 +28,15 @@ export default class HttpService<T extends P & { id: number | string }, P> {
 
 		return { request, abort: () => controller.abort() };
 	}
+
+	delete(id: string | number, config: AxiosRequestConfig) {
+		const controller = new AbortController();
+
+		const request = apiClient.delete<void>(`${this.url}/${id}`, {
+			...config,
+			signal: controller.signal,
+		});
+
+		return { request, abort: () => controller.abort() };
+	}
 }

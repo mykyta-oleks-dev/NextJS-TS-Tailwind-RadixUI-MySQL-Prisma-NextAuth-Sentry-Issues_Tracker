@@ -16,3 +16,7 @@ header nav ul a:not(.active) {
 header nav ul > a.active {
 	@apply text-zinc-900;
 }
+
+.radix-themes {
+	--cursor-button: pointer;
+}

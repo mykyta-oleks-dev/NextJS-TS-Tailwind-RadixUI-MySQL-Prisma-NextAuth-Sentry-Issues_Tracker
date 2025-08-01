@@ -1,5 +1,11 @@
-import LoadingSpinner from '@/app/components/LoadingSpinner';
-import { Button, Flex, Heading, TextArea, TextField } from '@radix-ui/themes';
+import {
+	Button,
+	Flex,
+	Heading,
+	Spinner,
+	TextArea,
+	TextField,
+} from '@radix-ui/themes';
 
 const LoadingForm = ({ heading }: { heading: string }) => {
 	return (
@@ -14,7 +20,7 @@ const LoadingForm = ({ heading }: { heading: string }) => {
 					<TextArea rows={20} disabled />
 				</div>
 				<Button type="button" disabled color="green">
-					Loading form... <LoadingSpinner />
+					Loading form... <Spinner />
 				</Button>
 			</form>
 		</Flex>

@@ -1,10 +1,18 @@
 'use client';
 
-import { ErrorMessage, LoadingSpinner } from '@/app/components';
+import { ErrorMessage } from '@/app/components';
 import { Issue } from '@/app/generated/prisma';
 import { CreateIssueData, createIssueSchema } from '@/app/validations/issues';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button, Callout, Flex, Heading, TextField } from '@radix-ui/themes';
+import {
+	AlertDialog,
+	Button,
+	Callout,
+	Flex,
+	Heading,
+	Spinner,
+	TextField,
+} from '@radix-ui/themes';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { FaExclamationTriangle } from 'react-icons/fa';
@@ -51,14 +59,6 @@ const IssueForm = ({ issue, submitCallback }: Props) => {
 			<Heading>
 				{!issue ? 'Create a new issue' : 'Update an issue'}
 			</Heading>
-			{error && (
-				<Callout.Root color="red" role="alert">
-					<Callout.Icon>
-						<FaExclamationTriangle />
-					</Callout.Icon>
-					<Callout.Text>{error}</Callout.Text>
-				</Callout.Root>
-			)}
 			<form
 				className="space-y-2.5"
 				onSubmit={(e) => void handleSubmit(onSubmit)(e)}
@@ -84,9 +84,29 @@ const IssueForm = ({ issue, submitCallback }: Props) => {
 					color="green"
 				>
 					Submit
-					{isLoading && <LoadingSpinner />}
+					<Spinner loading={isLoading} />
 				</Button>
 			</form>
+
+			<AlertDialog.Root open={!!error}>
+				<AlertDialog.Content maxWidth="450px">
+					<AlertDialog.Title>Error!</AlertDialog.Title>
+					<AlertDialog.Description size="2">
+						{error}
+					</AlertDialog.Description>
+					<Flex mt="4" justify="end">
+						<AlertDialog.Cancel>
+							<Button
+								variant="soft"
+								color="gray"
+								onClick={() => setError('')}
+							>
+								Close
+							</Button>
+						</AlertDialog.Cancel>
+					</Flex>
+				</AlertDialog.Content>
+			</AlertDialog.Root>
 		</Flex>
 	);
 };

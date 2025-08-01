@@ -24,7 +24,7 @@ As the application grows, additional technologies will be listed.
 
 - EasyMDE - a drop-in JavaScript text area replacement for writing beautiful and understandable Markdown.
 
-- React SimpleMDE Markdown Editor -  a React component wrapper for EasyMDE.
+- React SimpleMDE Markdown Editor - a React component wrapper for EasyMDE.
 
 - React Markdown + remark plugins - a React component to render markdown with remark plugins to support GFM syntax, easier lines breakdown.
 
@@ -54,7 +54,9 @@ $ npm run build
 
 As the application grows, new features will be added and described here.
 
-- Creating issues with rich markdown syntax descriptions
-- Exploring created issues in a table format
-- View issues details in a dedicated page with markdown descriptions view
-- Edit issues data such as titles and descriptions, and switch between available statuses
+- Issues:
+    - Create issues with rich markdown syntax descriptions
+    - Explore created issues in a table format
+    - View issues details in a dedicated page with markdown descriptions view
+    - Edit issues data such as titles and descriptions, and switch between available statuses
+    - Delete issues from their dedicated pages with confirmation
