@@ -6,11 +6,16 @@ import Link from 'next/link';
 import { RxPencil2 } from 'react-icons/rx';
 import DeleteButton from './DeleteButton';
 import StatusButtons from './StatusButtons';
+import AssigneeSelect from './AssigneeSelect';
 
 const Actions = ({ issueId, status }: { issueId: number; status: Status }) => {
 	return (
 		<Flex direction="column" gap="2">
 			<StatusButtons issueId={issueId} status={status} />
+
+			<Separator size="4" my="2" />
+
+			<AssigneeSelect />
 
 			<Separator size="4" my="2" />
 

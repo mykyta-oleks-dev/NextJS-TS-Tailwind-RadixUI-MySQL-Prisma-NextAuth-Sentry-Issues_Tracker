@@ -1,11 +1,12 @@
+import { Flex } from '@radix-ui/themes';
+import '@radix-ui/themes/styles.css';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import '@radix-ui/themes/styles.css';
-import './theme-config.css';
+import Footer from './Footer';
 import './globals.css';
-import { Theme } from '@radix-ui/themes';
 import Header from './Header';
-import AuthProvider from './auth/Provider';
+import Providers from './Providers';
+import './theme-config.css';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -33,12 +34,13 @@ export default function RootLayout({
 			className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 		>
 			<body>
-				<AuthProvider>
-					<Theme accentColor="violet">
+				<Providers>
+					<Flex direction="column" minHeight="100vh">
 						<Header />
-						<main>{children}</main>
-					</Theme>
-				</AuthProvider>
+						<main className="mb-10 grow">{children}</main>
+						<Footer />
+					</Flex>
+				</Providers>
 			</body>
 		</html>
 	);

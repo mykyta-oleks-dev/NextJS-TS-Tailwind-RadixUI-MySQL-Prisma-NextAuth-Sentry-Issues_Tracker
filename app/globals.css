@@ -6,7 +6,8 @@ body {
 }
 
 header nav,
-main {
+main,
+footer > div {
 	@apply container mx-auto px-5;
 }
 

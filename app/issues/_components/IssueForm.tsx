@@ -7,15 +7,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {
 	AlertDialog,
 	Button,
-	Callout,
 	Flex,
 	Heading,
 	Spinner,
-	TextField,
+	TextField
 } from '@radix-ui/themes';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { FaExclamationTriangle } from 'react-icons/fa';
 import MarkdownEditor from './MarkdownEditor';
 
 interface Props {

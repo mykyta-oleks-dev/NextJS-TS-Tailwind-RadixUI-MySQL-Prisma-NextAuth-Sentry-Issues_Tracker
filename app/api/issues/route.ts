@@ -1,15 +1,12 @@
-import authOptions from '@/app/auth/authOptions';
-import { createIssueSchema, CreateIssueData } from '@/app/validations/issues';
+import { CreateIssueData, createIssueSchema } from '@/app/validations/issues';
 import prisma from '@/prisma/client';
-import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { treeifyError } from 'zod';
+import AuthCheck from '../AuthCheck';
 
 export async function POST(request: NextRequest) {
-	const session = await getServerSession(authOptions);
-
-	if (!session)
-		return NextResponse.json({ error: 'Access denied' }, { status: 403 });
+	const authCheck = await AuthCheck();
+	if (authCheck) return authCheck;
 
 	const data = (await request.json()) as CreateIssueData;
 

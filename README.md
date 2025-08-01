@@ -30,6 +30,10 @@ As the application grows, additional technologies will be listed.
 
 - Next Auth - an open-source, full-stack authentication library primarily designed for Next.js applications.
 
+- Axios - a promise-based HTTP Client for node.js and the browser
+
+- TanStack Query (previously React Query) - a JavaScript library designed to simplify the complex task of data fetching and caching in React applications
+
 ## Installation
 
 The project uses `npm` as the package manager.
