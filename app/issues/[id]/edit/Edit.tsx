@@ -3,7 +3,13 @@
 import { Issue } from '@/app/generated/prisma';
 import issuesService from '@/app/services/IssuesService';
 import { useRouter } from 'next/navigation';
-import IssueForm from '../../_components/IssueForm';
+import dynamic from 'next/dynamic';
+import LoadingForm from '../../_components/LoadingForm';
+
+const IssueForm = dynamic(() => import('../../_components/IssueForm'), {
+	ssr: false,
+	loading: () => <LoadingForm heading="Update an issue" />,
+});
 
 interface Props {
 	issue: Issue;

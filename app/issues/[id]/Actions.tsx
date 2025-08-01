@@ -1,12 +1,12 @@
 'use client';
 
-import { Box, Button, Flex, Text } from '@radix-ui/themes';
-import Link from 'next/link';
-import { RxPencil2 } from 'react-icons/rx';
-import issuesService from '@/app/services/IssuesService';
 import { Status } from '@/app/generated/prisma';
-import { useRouter } from 'next/navigation';
+import issuesService from '@/app/services/IssuesService';
 import StatusMap from '@/app/services/statusMap';
+import { Button, Flex, Text } from '@radix-ui/themes';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { RxPencil2 } from 'react-icons/rx';
 
 const Actions = ({ issueId, status }: { issueId: number; status: Status }) => {
 	const router = useRouter();

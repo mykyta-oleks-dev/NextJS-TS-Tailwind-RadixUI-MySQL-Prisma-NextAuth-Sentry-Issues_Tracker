@@ -1,15 +1,11 @@
 'use client';
 import { MarkdownPreview } from '@/app/components';
 import { CreateIssueData } from '@/app/validations/issues';
+import SimpleMdeReact from 'react-simplemde-editor';
 import 'easymde/dist/easymde.min.css';
-import dynamic from 'next/dynamic';
 import { useMemo } from 'react';
 import { renderToString } from 'react-dom/server';
 import { ControllerRenderProps } from 'react-hook-form';
-
-const SimpleMdeReact = dynamic(() => import('react-simplemde-editor'), {
-	ssr: false,
-});
 
 const MarkdownEditor = ({
 	field,

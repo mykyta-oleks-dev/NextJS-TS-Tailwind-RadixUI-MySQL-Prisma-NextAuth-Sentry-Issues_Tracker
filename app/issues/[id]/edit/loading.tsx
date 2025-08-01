@@ -1,24 +1,5 @@
-import LoadingSpinner from '@/app/components/LoadingSpinner';
-import { Button, Flex, Heading, TextArea, TextField } from '@radix-ui/themes';
+import LoadingForm from '../../_components/LoadingForm';
 
-const LoadingNewIssuePage = () => {
-	return (
-		<Flex direction="column" gap="3">
-			<Heading>Update an issue</Heading>
+const loading = () => <LoadingForm heading="Update an issue" />;
 
-			<form className="space-y-2.5">
-				<div>
-					<TextField.Root disabled />
-				</div>
-				<div>
-					<TextArea rows={20} disabled />
-				</div>
-				<Button type="button" disabled color="green">
-					Loading form... <LoadingSpinner />
-				</Button>
-			</form>
-		</Flex>
-	);
-};
-
-export default LoadingNewIssuePage;
+export default loading;
