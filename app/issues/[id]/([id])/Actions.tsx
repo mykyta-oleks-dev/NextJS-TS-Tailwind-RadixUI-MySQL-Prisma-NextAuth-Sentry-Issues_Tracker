@@ -1,31 +1,32 @@
 'use client';
 
-import { Status } from '@/app/generated/prisma';
+import { Issue } from '@/app/generated/prisma';
 import { Button, Flex, Separator } from '@radix-ui/themes';
 import Link from 'next/link';
 import { RxPencil2 } from 'react-icons/rx';
+import AssigneeSelect from './AssigneeSelect';
 import DeleteButton from './DeleteButton';
 import StatusButtons from './StatusButtons';
-import AssigneeSelect from './AssigneeSelect';
 
-const Actions = ({ issueId, status }: { issueId: number; status: Status }) => {
+const Actions = ({ issue }: { issue: Issue }) => {
+	const { id, status } = issue;
 	return (
 		<Flex direction="column" gap="2">
-			<StatusButtons issueId={issueId} status={status} />
+			<StatusButtons issueId={id} status={status} />
 
 			<Separator size="4" my="2" />
 
-			<AssigneeSelect />
+			<AssigneeSelect issue={issue} />
 
 			<Separator size="4" my="2" />
 
 			<Button asChild>
-				<Link href={`/issues/${issueId}/edit`}>
+				<Link href={`/issues/${id}/edit`}>
 					Edit <RxPencil2 />
 				</Link>
 			</Button>
 
-			<DeleteButton issueId={issueId} />
+			<DeleteButton issueId={id} />
 		</Flex>
 	);
 };

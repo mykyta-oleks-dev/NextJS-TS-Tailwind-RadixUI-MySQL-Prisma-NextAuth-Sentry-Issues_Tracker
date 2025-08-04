@@ -30,9 +30,9 @@ As the application grows, additional technologies will be listed.
 
 - Next Auth - an open-source, full-stack authentication library primarily designed for Next.js applications.
 
-- Axios - a promise-based HTTP Client for node.js and the browser
+- Axios - a promise-based HTTP Client for node.js and the browser.
 
-- TanStack Query (previously React Query) - a JavaScript library designed to simplify the complex task of data fetching and caching in React applications
+- TanStack Query (previously React Query) - a JavaScript library designed to simplify the complex task of data fetching and caching in React applications.
 
 ## Installation
 
@@ -64,7 +64,7 @@ As the application grows, new features will be added and described here.
     - Explore issues in a table format
     - View issues details in a dedicated page with markdown descriptions view
     - Create issues with rich markdown syntax descriptions (requires authentication)
-    - Edit issues data such as titles and descriptions, and switch between available statuses (requires authentication)
+    - Edit issues data such as titles and descriptions, switch between available statuses and set an assignee among users (requires authentication)
     - Delete issues from their dedicated pages with confirmation (requires authentication)
 - Authentication:
     - Sign In with your Google Account to be able to perform dangerous operations with issues, such as creating, editing, switching statuses and deleting

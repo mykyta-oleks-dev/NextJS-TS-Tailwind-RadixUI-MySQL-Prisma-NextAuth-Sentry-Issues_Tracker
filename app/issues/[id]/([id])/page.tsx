@@ -26,7 +26,7 @@ const IssueDetailsPage = async ({ params }: Props) => {
 	return (
 		<Grid columns={{ initial: '1', md: '3fr 1fr' }} gap="5">
 			<Details issue={issue} />
-			{session && <Actions issueId={issue.id} status={issue.status} />}
+			{session && <Actions issue={issue} />}
 		</Grid>
 	);
 };
