@@ -1,5 +1,6 @@
 import AuthCheck from '@/app/api/AuthCheck';
-import { Status } from '@/app/generated/prisma';
+import issueFind from '@/app/api/IssueFind';
+import statusCheck from '@/app/api/StatusCheck';
 import prisma from '@/prisma/client';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -7,20 +8,15 @@ export async function PATCH(
 	request: NextRequest,
 	{ params }: { params: Promise<{ id: string }> }
 ) {
-	const authCheck = await AuthCheck();
-	if (authCheck) return authCheck;
+	const authErr = await AuthCheck();
+	if (authErr) return authErr;
 
-	const id = parseInt((await params).id);
-
-	if (!id)
-		return NextResponse.json({ error: 'Issue not found' }, { status: 404 });
-
-	const issue = await prisma.issue.findUnique({
-		where: { id },
-	});
+	const issue = await issueFind((await params).id);
 
 	if (!issue)
 		return NextResponse.json({ error: 'Issue not found' }, { status: 404 });
+
+	const { id } = issue;
 
 	const data = (await request.json()) as { status: string };
 
@@ -42,11 +38,3 @@ export async function PATCH(
 
 	return NextResponse.json(updIssue);
 }
-
-const statusCheck = (status: string): status is Status => {
-	for (const val in Status) {
-		if (status === val) return true;
-	}
-
-	return false;
-};

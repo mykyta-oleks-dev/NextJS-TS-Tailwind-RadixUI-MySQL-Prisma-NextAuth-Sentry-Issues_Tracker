@@ -7,6 +7,7 @@ const useUsers = () =>
 		queryFn: async ({ signal }) =>
 			(await usersService.readMany({}, signal)).data,
 		placeholderData: (prev) => prev,
+		staleTime: 60000,
 	});
 
 export default useUsers;

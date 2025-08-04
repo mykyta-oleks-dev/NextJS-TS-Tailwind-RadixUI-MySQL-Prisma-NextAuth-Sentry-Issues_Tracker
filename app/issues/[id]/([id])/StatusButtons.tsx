@@ -37,7 +37,7 @@ const StatusButtons = ({
 		try {
 			setIsLoadingStatus(value);
 
-			const { request } = issuesService.updateStatus(
+			const { request } = issuesService.update(
 				issueId,
 				{ status: value },
 				{}

@@ -5,8 +5,8 @@ import { treeifyError } from 'zod';
 import AuthCheck from '../AuthCheck';
 
 export async function POST(request: NextRequest) {
-	const authCheck = await AuthCheck();
-	if (authCheck) return authCheck;
+	const authErr = await AuthCheck();
+	if (authErr) return authErr;
 
 	const data = (await request.json()) as CreateIssueData;
 
