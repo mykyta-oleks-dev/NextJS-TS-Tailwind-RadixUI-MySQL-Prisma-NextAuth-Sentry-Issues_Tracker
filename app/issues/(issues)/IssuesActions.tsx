@@ -1,13 +1,27 @@
-import { Button } from '@radix-ui/themes';
+import { Button, Flex } from '@radix-ui/themes';
 import Link from 'next/link';
+import IssuesFilter from './IssuesFilter';
+import Pagination from '@/app/components/Pagination';
 
-const IssuesActions = () => {
+const IssuesActions = ({
+	count,
+	page,
+	pageSize,
+}: {
+	count: number;
+	page: number;
+	pageSize: number;
+}) => {
 	return (
-		<div className="mb-5">
+		<Flex mb="5" justify="between">
 			<Button asChild>
 				<Link href="/issues/new">New Issue</Link>
 			</Button>
-		</div>
+
+			<Pagination count={count} page={page} pageSize={pageSize} />
+
+			<IssuesFilter />
+		</Flex>
 	);
 };
 

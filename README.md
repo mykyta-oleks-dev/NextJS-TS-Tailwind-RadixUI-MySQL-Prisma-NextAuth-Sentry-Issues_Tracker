@@ -60,11 +60,9 @@ $ npm run build
 
 As the application grows, new features will be added and described here.
 
-- Issues:
-    - Explore issues in a table format
-    - View issues details in a dedicated page with markdown descriptions view
-    - Create issues with rich markdown syntax descriptions (requires authentication)
-    - Edit issues data such as titles and descriptions, switch between available statuses and set an assignee among users (requires authentication)
-    - Delete issues from their dedicated pages with confirmation (requires authentication)
-- Authentication:
-    - Sign In with your Google Account to be able to perform dangerous operations with issues, such as creating, editing, switching statuses and deleting
+- Explore issues in a table format with status filtering and pagination
+- View issues details in a dedicated page with markdown descriptions view
+- Create issues with rich markdown syntax descriptions (requires authentication)
+- Edit issues data such as titles and descriptions, switch between available statuses and set an assignee among users (requires authentication)
+- Delete issues from their dedicated pages with confirmation (requires authentication)
+- Authenticate by Signing In with your Google Account to be able to perform dangerous operations with issues, such as creating, editing, switching statuses and deleting

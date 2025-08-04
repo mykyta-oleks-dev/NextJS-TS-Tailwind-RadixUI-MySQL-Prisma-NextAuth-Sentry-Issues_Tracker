@@ -1,11 +1,51 @@
-import { Table } from '@radix-ui/themes';
+import {
+	Button,
+	Flex,
+	IconButton,
+	Select,
+	Spinner,
+	Table,
+	Text,
+} from '@radix-ui/themes';
 import IssuesActions from './IssuesActions';
 import Skeleton from '@/app/components/Skeleton';
+import {
+	RxChevronLeft,
+	RxChevronRight,
+	RxDoubleArrowLeft,
+	RxDoubleArrowRight,
+} from 'react-icons/rx';
 
 const LoadingIssuesPage = () => {
 	return (
 		<div>
-			<IssuesActions />
+			<Flex mb="5" justify="between">
+				<Button asChild disabled>
+					<Text>New Issue</Text>
+				</Button>
+
+				<Flex gap="2" align="center">
+					<IconButton variant="soft" loading>
+						<RxDoubleArrowLeft />
+					</IconButton>
+					<IconButton variant="soft" loading>
+						<RxChevronLeft />
+					</IconButton>
+					<Text size="2">
+						Loading... <Spinner className="inline!" />
+					</Text>
+					<IconButton variant="soft" loading>
+						<RxChevronRight />
+					</IconButton>
+					<IconButton variant="soft" loading>
+						<RxDoubleArrowRight />
+					</IconButton>
+				</Flex>
+
+				<Select.Root>
+					<Select.Trigger placeholder="Loading..." />
+				</Select.Root>
+			</Flex>
 			<Table.Root variant="surface">
 				<Table.Header>
 					<Table.Row>
