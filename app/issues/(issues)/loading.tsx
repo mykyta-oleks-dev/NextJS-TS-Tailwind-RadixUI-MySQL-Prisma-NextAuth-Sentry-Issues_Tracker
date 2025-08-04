@@ -1,3 +1,4 @@
+import Skeleton from '@/app/components/Skeleton';
 import {
 	Button,
 	Flex,
@@ -7,8 +8,6 @@ import {
 	Table,
 	Text,
 } from '@radix-ui/themes';
-import IssuesActions from './IssuesActions';
-import Skeleton from '@/app/components/Skeleton';
 import {
 	RxChevronLeft,
 	RxChevronRight,

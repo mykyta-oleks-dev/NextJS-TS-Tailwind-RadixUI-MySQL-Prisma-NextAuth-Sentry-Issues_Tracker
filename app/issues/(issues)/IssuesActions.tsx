@@ -1,7 +1,7 @@
 import { Button, Flex } from '@radix-ui/themes';
 import Link from 'next/link';
 import IssuesFilter from './IssuesFilter';
-import Pagination from '@/app/components/Pagination';
+import { Pagination } from '@/app/components';
 
 const IssuesActions = ({
 	count,
