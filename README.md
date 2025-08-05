@@ -20,6 +20,8 @@ As the application grows, additional technologies will be listed.
 
 - Tailwind CSS - a utility-first CSS framework.
 
+- Radix UI - an open-source library of headless, unstyled, and accessible React components.
+
 - Prisma - an open-source Object-Relational Mapper (ORM) designed for Node.js and TypeScript applications.
 
 - EasyMDE - a drop-in JavaScript text area replacement for writing beautiful and understandable Markdown.
