@@ -48,6 +48,11 @@ $ npm install
 
 ## Running the project
 
+Apply migrations to your database on first time deployment:
+```shell
+$ npx prisma migrate
+```
+
 To run the application in development mode:
 
 ```shell
