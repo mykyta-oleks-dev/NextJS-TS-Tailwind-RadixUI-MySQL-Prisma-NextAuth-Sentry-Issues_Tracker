@@ -60,6 +60,7 @@ $ npm run build
 
 As the application grows, new features will be added and described here.
 
+- Explore a summary for issues in the system such as their count and latest on Dashboard at starting page
 - Explore issues in a table format with status filtering and pagination
 - View issues details in a dedicated page with markdown descriptions view
 - Create issues with rich markdown syntax descriptions (requires authentication)
