@@ -34,6 +34,8 @@ As the application grows, additional technologies will be listed.
 
 - TanStack Query (previously React Query) - a JavaScript library designed to simplify the complex task of data fetching and caching in React applications.
 
+- Sentry - Application Performance Monitoring & Error Tracking Software.
+
 ## Installation
 
 The project uses `npm` as the package manager.

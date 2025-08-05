@@ -4,6 +4,7 @@ import {
 	Card,
 	Flex,
 	Grid,
+	Select,
 	Separator,
 	Text,
 } from '@radix-ui/themes';
@@ -31,6 +32,13 @@ const LoadingIssueDetailsPage = () => {
 					{statuses.map((s) => {
 						return <Button key={s} loading />;
 					})}
+
+					<Separator size="4" my="2" />
+
+					<Text>Assigned to:</Text>
+					<Select.Root disabled>
+						<Select.Trigger placeholder="Loading..." />
+					</Select.Root>
 
 					<Separator size="4" my="2" />
 

@@ -6,8 +6,8 @@ import Link from 'next/link';
 const HeaderLinks = () => {
 	const currentPath = usePathname();
 	const links = [
+		{ href: '/', label: 'Dashboard' },
 		{ href: '/issues', label: 'Issues' },
-		{ href: '/about', label: 'About' },
 	];
 	return (
 		<ul className="my-auto flex gap-3">

@@ -1,9 +1,9 @@
 import { StatusBadge } from '@/app/components';
-import { Issue, Status } from '@/app/generated/prisma';
+import { Issue } from '@/app/generated/prisma';
 import { Table, Text } from '@radix-ui/themes';
 import Link from 'next/link';
 import { RxArrowDown, RxArrowUp } from 'react-icons/rx';
-import { OrderType } from './page';
+import { SearchParams } from './types';
 
 interface Props {
 	issues: Issue[];
@@ -88,13 +88,5 @@ export const headerCells: {
 		className: 'hidden md:table-cell',
 	},
 ];
-
-export type SearchParams = {
-	status?: Status;
-	orderBy?: keyof Issue;
-	orderType?: OrderType;
-	page?: string;
-	pageSize?: string;
-};
 
 export default IssuesTable;

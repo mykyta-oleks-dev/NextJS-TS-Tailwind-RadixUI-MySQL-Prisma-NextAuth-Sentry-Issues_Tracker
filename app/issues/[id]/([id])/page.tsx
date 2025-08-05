@@ -5,10 +5,17 @@ import Actions from './Actions';
 import Details from './Details';
 import { getServerSession } from 'next-auth';
 import authOptions from '@/app/auth/authOptions';
+import { cache } from 'react';
 
 interface Props {
 	params: Promise<{ id: string }>;
 }
+
+const fetchUser = cache((issueId: number) =>
+	prisma.issue.findUnique({
+		where: { id: issueId },
+	})
+);
 
 const IssueDetailsPage = async ({ params }: Props) => {
 	const session = await getServerSession(authOptions);
@@ -17,9 +24,7 @@ const IssueDetailsPage = async ({ params }: Props) => {
 
 	if (!id) notFound();
 
-	const issue = await prisma.issue.findUnique({
-		where: { id },
-	});
+	const issue = await fetchUser(id);
 
 	if (!issue) notFound();
 
@@ -30,5 +35,22 @@ const IssueDetailsPage = async ({ params }: Props) => {
 		</Grid>
 	);
 };
+
+export async function generateMetadata({ params }: Props) {
+	const id = parseInt((await params).id);
+
+	const issue = await fetchUser(id);
+
+	if (!issue)
+		return {
+			title: 'Issues Tracker - Not Found',
+			description: 'The issue is not found in the database',
+		};
+
+	return {
+		title: 'Issues Tracker - ' + issue.title,
+		description: `Details page for an issue "${issue.title}"`,
+	};
+}
 
 export default IssueDetailsPage;

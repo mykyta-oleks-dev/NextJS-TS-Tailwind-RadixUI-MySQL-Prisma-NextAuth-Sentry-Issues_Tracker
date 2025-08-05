@@ -8,7 +8,7 @@ import AuthStatus from './components/Header/AuthStatus';
 const Header = () => {
 	return (
 		<header className="mb-3 border-b border-b-zinc-300">
-			<nav className="flex gap-9 py-3">
+			<nav className="flex gap-6 py-3">
 				<Link href="/">
 					<AiFillBug size="1.75em" />
 				</Link>

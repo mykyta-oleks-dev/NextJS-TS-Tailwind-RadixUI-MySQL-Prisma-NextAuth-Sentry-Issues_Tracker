@@ -2,10 +2,14 @@ import { Prisma, Status } from '@/app/generated/prisma';
 import prisma from '@/prisma/client';
 import { Box } from '@radix-ui/themes';
 import IssuesActions from './IssuesActions';
-import IssuesTable, { headerCells, SearchParams } from './IssuesTable';
+import IssuesTable, { headerCells } from './IssuesTable';
+import { Metadata } from 'next';
+import { orderTypes, SearchParams } from './types';
 
-export const orderTypes = ['asc', 'desc'];
-export type OrderType = (typeof orderTypes)[number] | undefined;
+export const metadata: Metadata = {
+	title: 'Issues Tracker - Issues table',
+	description: 'View all project issues',
+};
 
 interface Props {
 	searchParams: Promise<SearchParams>;

@@ -2,8 +2,7 @@
 
 import { Card } from '@radix-ui/themes';
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
-import StatusMap from '../services/statusMap';
-import { orange, violet, green } from '@radix-ui/colors';
+import StatusMap, { getColor } from '../services/statusMap';
 
 interface Props {
 	open: number;
@@ -16,17 +15,17 @@ const IssuesChart = ({ open, inProgress, closed }: Props) => {
 		{
 			label: 'Open issues',
 			value: open,
-			fill: orange.orange9,
+			fill: getColor(StatusMap['OPEN'].color)!,
 		},
 		{
 			label: 'Issues in progress',
 			value: inProgress,
-			fill: violet.violet9,
+			fill: getColor(StatusMap['IN_PROGRESS'].color)!,
 		},
 		{
 			label: 'Closed issues',
 			value: closed,
-			fill: green.green9,
+			fill: getColor(StatusMap['CLOSED'].color)!,
 		},
 	];
 
