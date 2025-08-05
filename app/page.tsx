@@ -54,3 +54,5 @@ export default async function Home() {
 		</Box>
 	);
 }
+
+export const dynamic = 'force-dynamic';
