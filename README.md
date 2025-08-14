@@ -4,8 +4,6 @@ This is a project of issues management web application developed with React and 
 
 ## Technologies used
 
-As the application grows, additional technologies will be listed.
-
 - Next.JS - "The React Framework for the Web".
 
 - TypeScript - a strongly typed programming language that builds on JavaScript.
@@ -71,8 +69,6 @@ $ npm run build
 ```
 
 ## Features
-
-As the application grows, new features will be added and described here.
 
 - Explore a summary for issues in the system such as their count and latest on Dashboard at starting page
 - Explore issues in a table format with status filtering and pagination
